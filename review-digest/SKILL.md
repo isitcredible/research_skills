@@ -6,7 +6,7 @@ description: >-
   human evaluators. Use when asked to "make the reviewer digest", "write the issues
   file", "render the review", or produce an evaluator-facing version of a review.
 metadata:
-  version: "0.9.0"
+  version: "0.9.1"
 ---
 
 # Review digest

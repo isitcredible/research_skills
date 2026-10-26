@@ -58,7 +58,7 @@ files, never a remembered coefficient. Screen every row:
      (`../references/methods/fu_slough_2026_hte_mechanisms.md`);
    - design validity: identifying variation, isolation, measurement, power;
    - **the specialist literature — reading the works is the check**
-     (`../references/historiography-protocol.md`); another paper drawing on the same
+     (`../references/literature-protocol.md`); another paper drawing on the same
      sources is context, not corroboration;
    - claims that reach the conclusion by a bank shot, or label a mechanical
      consequence as a finding;

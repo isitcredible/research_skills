@@ -7,7 +7,7 @@ description: >-
   context, and records what the evidence establishes claim by claim. Use when asked
   to review a paper, audit a draft, or start a replication.
 metadata:
-  version: "0.9.0"
+  version: "0.9.1"
 ---
 
 # Review
