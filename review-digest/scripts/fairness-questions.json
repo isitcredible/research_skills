@@ -1,0 +1,20 @@
+{
+  "attribution_strength": {
+    "type": "score",
+    "instructions": "This passage is from an issue ledger summarizing an adversarial review of an academic paper. How strongly does the text attribute motive, intent, purpose, or direction of selection to the paper's authors — presenting an analytic or reporting choice as made in order to serve a claim, narrative, or preferred conclusion? Judge the strongest attribution anywhere in the passage.",
+    "criteria": [
+      "No attribution. The passage describes what was done, what the evidence shows, a measured effect, or documentation status (documented/undocumented/assumed/printed/not printed). Effect descriptions like 'understates the honest range', 'removes the sample minimum', or 'raises the estimate' are this level, as is noting that a rule application is consistent or inconsistent with a stated rule.",
+      "Coincidence noted, no purpose. A choice is observed to coincide with a claim's interest or to land on a convenient endpoint, without any suggestion it was made for that reason.",
+      "Purpose implied by wording. The choice is presented as serving a claim through loaded or insinuating language — e.g. 'cherry-picked', 'suits the claim', 'convenient', 'silent/silently', 'selects', 'framed', 'spun', 'sold as', 'manufactured', 'strategic' — or any equivalent suggestion in other words.",
+      "Purpose asserted. The passage states outright that the authors acted from motive, strategy, intent, or design to reach a conclusion or to conceal."
+    ]
+  },
+  "intent_disclaimer": {
+    "type": "noul",
+    "instructions": "Does this passage itself disclaim intent or state that evidence for motive, direction, misrepresentation, or fabrication is absent or unproven?",
+    "criteria": {
+      "true": "The passage contains an explicit disclaimer — e.g. 'no evidence supports misrepresentation or fabrication', 'observation, not motive', 'no inference about cause', 'not a uniform tilt', or a neutrality caveat of the same kind.",
+      "false": "No such disclaimer appears in this passage."
+    }
+  }
+}

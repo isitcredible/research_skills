@@ -1,0 +1,28 @@
+{
+  "ai_register": {
+    "type": "score",
+    "instructions": "This passage is from a piece of prose the author intends for readers — an essay, article, blog post, chapter, report, or technical document. The house register is cool, specific, fact-dense prose: every sentence delivers a fact about the subject — evidence, numbers, arguments, what was done and what it shows; claims are stated flat; the writer's process, care, and the document's own shape are never the subject. How strongly does this passage read as machine-generated prose — performing the argument or the writer's diligence rather than stating material? Judge the strongest stretch in the passage. Authorial voice mechanics are NOT register faults here: sentence-initial connectives ('However,', 'Moreover,' are acceptable), punctuation frequency, and long sentences that still deliver facts do not count.",
+    "criteria": [
+      "Plain declarative. Sentences deliver facts — findings, numbers, comparisons, narrative events, what was done and what it shows. Short verdict sentences, terse technical register, tables, enumeration, and document metadata are all this level.",
+      "Isolated tell. One stock filler or evaluative word ('notably', 'crucially', 'importantly', 'it is worth noting', 'overall', 'taken together'), one connective doing no work, or one padded sentence in an otherwise factual passage.",
+      "Marked register. Rhetorical scaffolding (setup-negation-correction such as 'That is not the problem. The problem is…', staged rhetorical questions, announcing the argument's shape), an aphoristic maxim-and-application hinge — a balanced general principle stated and immediately applied to the subject ('X needs a Y argument, and Z offers one', 'every claim requires evidence; here is the evidence'), concession-first structure, self-credentialing ('every number was checked', 'we verified'), meta-vocabulary about the document or its sections, elegant variation cycling synonyms for a defined term, a run of evenly medium-length declaratives padded with evaluative adverbs, or a closing flourish that restates rather than concludes.",
+      "Dominant register. The passage performs rather than states: whole sentences deliver no fact about the subject — describing the document itself, the writer's process, care, or diligence, or the argument's shape — or multiple marked tells are stacked together."
+    ]
+  },
+  "fact_free_sentences": {
+    "type": "noul",
+    "instructions": "Does this passage contain a sentence whose deletion would lose no fact about the subject — a sentence whose subject is the document itself, the writer's process or care, or the argument's shape ('two things follow', 'as shown above', 'the results are striking', 'this warrants attention'), or a general maxim stated only to frame the fact the next sentence delivers, where deleting the sentence loses nothing the following sentences do not already carry ('X needs a Y argument, and Z offers one' immediately followed by the argument itself)?",
+    "criteria": {
+      "true": "At least one such sentence appears in the passage — it narrates the document, the process, or the argument instead of carrying a fact.",
+      "false": "Every sentence in the passage delivers a fact about the subject."
+    }
+  },
+  "deliberation_leak": {
+    "type": "noul",
+    "instructions": "Public prose carries the conclusion and what a reader needs to follow it. A deliberation leak is content whose subject is the writers' process, checking, worry, or rejected routes rather than the subject matter: self-narrating verification ('we checked', 'we were careful to'), tours of alternatives considered and dropped ('we explored', 'an alternative specification', 'one could instead'), objections pre-empted that no reader raised ('it might be objected that', 'this is not to say', 'we are not claiming'), bug or process autopsies ('after correcting an error', 'an earlier version had'), hedging that mattered only while a result was uncertain, and apparatus explaining a trivial derivation or reconciling numbers a competent reader reconciles unaided. Method description stating what was done to the data — 'water cells were masked', 'farm values are land and buildings only' — is NOT a leak: the reader needs it to know what the number is. Does this passage contain deliberation-leak content?",
+    "criteria": {
+      "true": "At least one sentence's subject is the writers' deliberation, verification, worry, or rejected routes rather than the subject's facts.",
+      "false": "Every sentence's subject is the subject matter or a reader-facing fact — what was done to the data counts as reader-facing."
+    }
+  }
+}

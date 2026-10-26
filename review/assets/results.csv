@@ -1,0 +1,2 @@
+record_type,spec_id,estimand_id,design,outcome,treatment,sample,estimator,n_obs,n_clusters,published_estimate,published_se,source_cell,estimate,std_error,p_value,ci_low,ci_high,method,seed,state,validity,row_role,artifact,notes
+RES,anchor,,,,,,,,,,,,,,,,,,,done,clean,rebuttal,,

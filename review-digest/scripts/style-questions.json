@@ -1,0 +1,20 @@
+{
+  "ai_register": {
+    "type": "score",
+    "instructions": "This passage is from an evaluator-facing issue ledger summarizing a forensic review of an academic paper. The house register is cool, specific, fact-dense prose: every sentence delivers a fact about the paper, its data, its methods, or the evidence; findings are stated flat; the writer's process, care, and the document's own shape are never the subject. How strongly does this passage read as machine-generated prose — performing the argument or the writer's diligence rather than stating findings? Judge the strongest stretch in the passage. Voice mechanics are the author's own and are NOT register faults here: sentence-initial connectives ('However,', 'Moreover,' are acceptable in this document), punctuation frequency, and long sentences that still deliver facts do not count.",
+    "criteria": [
+      "Plain declarative. Sentences deliver facts — findings, numbers, comparisons, what was done and what it shows. Short verdict sentences, terse technical register, tables, and enumeration of findings are all this level. Internal ledger fields (severity:, category:, evidence:, sources:, frontmatter) are not prose and do not count.",
+      "Isolated tell. One stock filler or evaluative word ('notably', 'crucially', 'importantly', 'it is worth noting', 'overall', 'taken together'), one connective doing no work, or one padded sentence in an otherwise factual passage.",
+      "Marked register. Rhetorical scaffolding (setup-negation-correction such as 'That is not the problem. The problem is…', staged rhetorical questions, announcing the argument's shape), an aphoristic maxim-and-application hinge — a balanced general principle stated and immediately applied to the paper ('X needs a Y argument, and Z offers one', 'every claim requires evidence; here is the evidence'), concession-first structure, self-credentialing ('every number was recomputed', 'we verified', 'the printed cell verifies exactly', 'the deposit reproduces', 'no specification fails to reproduce' — in this ledger a check that SUCCEEDED is never news: reproduction claims are reported only when they fail, so any announcement that a cell, table, or specification verified or reproduced is credit-claiming on the baseline, however factual the values attached to it), meta-vocabulary about the digest or its sections, bare section numbers or internal IDs used as nouns without naming what they refer to ('the §3.6 results', 'in §7.3', 'CL08'), elegant variation cycling synonyms for a defined term, a run of evenly medium-length declaratives padded with evaluative adverbs, or a closing flourish that restates rather than concludes.",
+      "Dominant register. The passage performs rather than states: whole sentences deliver no fact about the paper — describing the document itself, the writer's process, care, or diligence, or the argument's shape — or multiple marked tells are stacked together."
+    ]
+  },
+  "fact_free_sentences": {
+    "type": "noul",
+    "instructions": "Does this passage contain a sentence whose deletion would lose no fact about the paper, its data, methods, or evidence — a sentence whose subject is the document itself, the writer's process or care, or the argument's shape ('two things follow', 'as shown above', 'the results are striking', 'this warrants attention'), or a general maxim stated only to frame the fact the next sentence delivers, where deleting the sentence loses nothing the following sentences do not already carry ('X needs a Y argument, and Z offers one' immediately followed by the argument itself)?",
+    "criteria": {
+      "true": "At least one such sentence appears in the passage — it narrates the document, the process, or the argument instead of carrying a fact.",
+      "false": "Every sentence in the passage delivers a fact about the subject."
+    }
+  }
+}

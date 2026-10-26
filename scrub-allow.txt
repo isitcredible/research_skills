@@ -1,0 +1,6 @@
+review-digest/scripts/check_ledger_coverage.py:\[claude\]: .*AGENTS/CLAUDE/MEMORY/README
+review-digest/scripts/corpus_rules.py:\[claude\]: .*"claude\.md"
+review/references/methods/koren_2026_theorist_toolbox.md:\[codex\]: .*codex-math
+review-digest/SKILL.md:\[claude\]: .*`CLAUDE\.md`
+README.md:\[isitcredible\]: MIT\. Copyright \(c\) 2026 The Catalogue of Errors Ltd
+README.md:\[isitcredible\]: \(\[isitcredible\.com\]\(https://isitcredible\.com\)\)\. Each top-level folder is one skill\.
