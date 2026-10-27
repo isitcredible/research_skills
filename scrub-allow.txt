@@ -4,3 +4,4 @@ review/references/methods/koren_2026_theorist_toolbox.md:\[codex\]: .*codex-math
 review-digest/SKILL.md:\[claude\]: .*`CLAUDE\.md`
 README.md:\[isitcredible\]: MIT\. Copyright \(c\) 2026 The Catalogue of Errors Ltd
 README.md:\[isitcredible\]: \(\[isitcredible\.com\]\(https://isitcredible\.com\)\)\. Each top-level folder is one skill\.
+README.md:\[isitcredible\]: git clone https://github\.com/isitcredible/research_skills\.git

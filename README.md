@@ -20,7 +20,8 @@ establishes, claim by claim. `audit-review` then checks the review, and
 `review-digest` turns the audited result into a ranked issue list.
 
 Version 0.9, the first public release. Below 1.0 the requirements may still change;
-`review/spec-changes.csv` records every change by version. The three skills share one
+[`CHANGELOG.md`](CHANGELOG.md) summarises each release and `review/spec-changes.csv`
+records every change by version. The three skills share one
 version, recorded in each `SKILL.md`'s frontmatter; `audit-review` reads
 `review/spec-changes.csv` to list what an older run was never asked to do.
 
@@ -56,7 +57,16 @@ the logic of the case, not by severity.
 
 ### Installation
 
-Copy the three skill folders **side by side** into your agent's skills directory:
+The skills change often, so install them from a clone of this repository and link
+them into your agent's skills directory. An update is then one `git pull`. Set
+`SKILLS_DIR` to the directory your agent reads skills from:
+
+```
+git clone https://github.com/isitcredible/research_skills.git ~/research_skills
+ln -s ~/research_skills/review ~/research_skills/audit-review ~/research_skills/review-digest "$SKILLS_DIR"/
+```
+
+The three skills must sit **side by side** in the skills directory:
 
 ```
 skills/
@@ -66,8 +76,22 @@ skills/
 ```
 
 The layout matters: `audit-review` and `review-digest` call the `review` skill's
-scripts by name. To use `ai-sweep` on its own as well, copy or link
-`review-digest/ai-sweep/` into the same directory.
+scripts by name. To use `ai-sweep` on its own as well, link
+`review-digest/ai-sweep/` into the same directory. If your agent does not follow
+symbolic links, copy the folders instead and copy them again after each update.
+
+### Updating
+
+```
+git -C ~/research_skills pull
+```
+
+[`CHANGELOG.md`](CHANGELOG.md) lists what each release changed. Update between runs,
+not in the middle of one: each run records the suite version it was made under, and
+`audit-review` reads `review/spec-changes.csv` to list what an older run was never
+asked to do. To hold a project at one release, check out its tag in the clone
+(`git -C ~/research_skills checkout v0.9.1`); `git -C ~/research_skills checkout main`
+returns to the latest.
 
 ### Requirements
 
