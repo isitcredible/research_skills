@@ -6,6 +6,20 @@ in `review/spec-changes.csv`, which records every requirement change in full.
 
 Below 1.0 any release may change what the skills require of a run.
 
+## 0.9.2 — 2026-10-27
+
+- Model routing is guidance, not fixed assignments: fit it to the models, prices and
+  harness available. *Agents and cost* in `review/SKILL.md` now names three rough
+  kinds of task: mechanical (checkable by looking, so a cheaper model can do it),
+  analysis (stage and module reports, the scripts a review writes, the provisional
+  claim ledger, the coordinator) and verdict (the challenge and verdict stages, where
+  the strongest available model buys most for least). With two models, analysis and
+  verdict share the stronger; the challenge agent runs on a model at least as strong
+  as the one that wrote what it tests. The section gives examples for a single model,
+  Claude, OpenAI and a lead-and-worker harness. What a run produces is unchanged.
+
+Spec row: R534 (process).
+
 ## 0.9.1 — 2026-10-26
 
 - The independent-literature check now applies to every paper, not only to historical

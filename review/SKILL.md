@@ -7,7 +7,7 @@ description: >-
   context, and records what the evidence establishes claim by claim. Use when asked
   to review a paper, audit a draft, or start a replication.
 metadata:
-  version: "0.9.1"
+  version: "0.9.2"
 ---
 
 # Review
@@ -306,15 +306,37 @@ every check the stages require still runs.
 model handles which kind of task; where nothing is set, every agent uses the session's
 model.
 
-- **Route by kind of task.** *Mechanical* tasks — acquiring and filing sources,
-  rendering and reading printed pages for a print check, re-running scripts and
-  diffing their logs, building coverage and bookkeeping artifacts, migrating an old
-  run's records — go to the model the operator's routing assigns to mechanical
-  subagent work. *Judgement* tasks — every stage report and module report, the claim
-  ledger, the challenge stage and the verdict stage — go to the model the routing
-  assigns to verdicts. A mechanical worker reports what it found (match or mismatch, the number,
-  the file); it does not rate a claim or decide what a finding means. Where the
-  routing is silent, both kinds go to the session's model.
+- **Route by kind of task, with whatever models are available.** There are no fixed
+  assignments; fit the routing to the models, prices and harness at hand. Tasks fall
+  into three rough kinds:
+  - *Mechanical* — acquiring and filing sources, rendering and reading printed pages
+    for a print check, re-running scripts and diffing their logs, building coverage
+    and bookkeeping artifacts, migrating an old run's records. Its output can be
+    checked by looking, so a cheaper model can do it. A mechanical worker reports what
+    it found (match or mismatch, the number, the file); it does not rate a claim or
+    decide what a finding means.
+  - *Analysis* — the stage and module reports, the scripts a review writes, the
+    provisional claim ledger, and the coordinator. Most of a run's cost is here, in
+    long-lived agents.
+  - *Verdict* — the challenge stage and the verdict stage. A few short agents decide
+    what the review concludes, so this is where the strongest available model, at
+    its highest effort, buys most for least.
+
+  With one model, everything runs on it; with two, analysis and verdict share the
+  stronger. The challenge agent runs on a model at least as strong as the one that
+  wrote what it tests. Examples (model names date quickly):
+  - One capable model for everything, at high effort — the simplest set-up.
+  - Claude: Sonnet for mechanical tasks, Opus for analysis, Opus at its highest
+    effort for the challenge and verdict stages.
+  - OpenAI: Luna or Terra for mechanical tasks, Terra or Sol for analysis, Astra for
+    the challenge and verdict stages.
+  - A lead-and-worker harness (Devin Fusion, for example): the lead takes the
+    coordinator and the verdict tier, the worker the mechanical tier, and analysis
+    goes to whichever of the two is strong enough for it.
+  - A model from a different family for the challenge stage, so that its errors are
+    less likely to repeat those of the reports it tests.
+
+  Where the routing is silent, every kind goes to the session's model.
 - **Brief each agent for one bounded job** — a module, a group of result families, an
   acquisition list — that it can finish in well under a hundred tool calls. An agent
   past about eighty calls with work left writes its findings to their files and its
