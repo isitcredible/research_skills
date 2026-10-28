@@ -7,7 +7,7 @@ description: >-
   context, and records what the evidence establishes claim by claim. Use when asked
   to review a paper, audit a draft, or start a replication.
 metadata:
-  version: "0.9.3"
+  version: "0.9.4"
 ---
 
 # Review
@@ -21,6 +21,13 @@ valid outcome, reported as survival.
 The review records what the evidence supports; it rates nothing. Each claim is recorded as
 holding, holding only in narrower form, or not established, with what survives. How
 much a finding matters to a reader is decided when the digest is written.
+
+## Before starting: check for updates
+
+If this skill is installed from a clone of `github.com/isitcredible/research_skills`,
+run `git fetch` in the clone before starting a new run (never mid-run). If `main` has
+moved on, tell the operator what the new `CHANGELOG.md` entries change and pull with
+their go (unattended, pull), then re-read this file. A clone held at a tag stays put.
 
 ## Rules that bind every stage
 

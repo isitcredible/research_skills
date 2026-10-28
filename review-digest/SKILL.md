@@ -6,7 +6,7 @@ description: >-
   human evaluators. Use when asked to "make the reviewer digest", "write the issues
   file", "render the review", or produce an evaluator-facing version of a review.
 metadata:
-  version: "0.9.3"
+  version: "0.9.4"
 ---
 
 # Review digest
@@ -49,6 +49,8 @@ source the review itself could not obtain (`unverified-here`) is a Caveat about 
 review's reach, never an issue against the paper.
 
 ## Steps
+
+Before starting, check for updates as the `review` skill describes.
 
 Commands run from the job root — the folder holding `SYNTHESIS.md`, where `ISSUES.md`,
 `HANDOFF.md`, `ERRATA.md` and the ruling files live (not its `review/` subfolder); every
@@ -240,8 +242,10 @@ evidence lives. Code-span notation containing `*` or `_`.
 ## Assessment
 What the issues add up to — the top-ranked finding opens it (what fails, under what
 change, what survives), the closing sentence states what it establishes. Then
-**Avenues the evidence leaves open** (open questions, never instructions) and
-**Caveats** (bounds on what findings establish — omit if none).
+**Avenues the evidence leaves open** (open questions, never instructions), **What we
+know** (a short paragraph: what the article's evidence establishes, with the main
+numbers, following SYNTHESIS's bottom line; it does not mention the review or call
+itself "honest") and **Caveats** (bounds on what findings establish — omit if none).
 
 ## References            # whenever external work is relied on
 One Harvard entry per external work used; the reviewed paper needs none; every entry

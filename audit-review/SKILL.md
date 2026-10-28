@@ -10,7 +10,7 @@ description: >-
   goes back to the review's verdict stage. Declares the evidence handoff for the
   digest. Use after a review, or to bring an old run up to the current spec.
 metadata:
-  version: "0.9.3"
+  version: "0.9.4"
 ---
 
 # Audit a review
@@ -36,6 +36,8 @@ contents, the stage reports, or this skill open beside it — name the substance
 wage simulation (Section 3.6, p. 48)"), never a bare section number ("§7.3", "the §3.6
 results", "§6", "§4a") or a bare claim or finding ID ("CL08", "C14") as a noun, in the
 reports, `CHANGELOG.md` open/operator items, or messages to the operator.
+
+Before starting, check for updates as the `review` skill describes.
 
 ## Ground rules
 

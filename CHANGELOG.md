@@ -6,6 +6,17 @@ in `review/spec-changes.csv`, which records every requirement change in full.
 
 Below 1.0 any release may change what the skills require of a run.
 
+## 0.9.4 — 2026-10-29
+
+- The digest's Assessment carries a short **What we know** paragraph, after the
+  avenues and before the Caveats: what the article's evidence establishes, with the
+  main numbers, following the review's bottom line.
+- Each skill checks its clone for updates before starting (never mid-run), reports
+  what the new release changes, and pulls with the operator's go. A clone held at a
+  tag stays put.
+
+Spec rows: R536 (added), R537 (process).
+
 ## 0.9.3 — 2026-10-28
 
 - The digest prints one fixed line under its title, in the HTML and in its Markdown

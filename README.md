@@ -86,6 +86,9 @@ symbolic links, copy the folders instead and copy them again after each update.
 git -C ~/research_skills pull
 ```
 
+Each skill checks for updates before it starts and pulls them with your go; a clone
+held at a tag stays put.
+
 [`CHANGELOG.md`](CHANGELOG.md) lists what each release changed. Update between runs,
 not in the middle of one: each run records the suite version it was made under, and
 `audit-review` reads `review/spec-changes.csv` to list what an older run was never
