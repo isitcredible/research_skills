@@ -654,6 +654,9 @@ def stale_check(src, out, review_dir):
     sys.exit(0)
 
 
+PROVENANCE = "Produced by AI agents and not independently verified."
+
+
 def esc(s):
     return htmllib.escape(s, quote=True)
 
@@ -661,7 +664,8 @@ def esc(s):
 def build_comment(mode, ledger_sha, manifest_sha, source_shas):
     """Invisible build metadata — bound to the delivered file itself, so
     staleness detection never depends on a sidecar surviving. Reader-
-    invisible: the 'no generation footer' rule governs visible text."""
+    invisible. The one visible statement of origin is PROVENANCE, under the
+    title."""
     meta = {"mode": mode,
             "built": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
             "ledger_sha256": ledger_sha,
@@ -694,7 +698,7 @@ def render(meta, issues, sections, md_filename, build=""):
 
     sections_html = {k: md(v) for k, v in sections.items()}
 
-    md_parts = [f"# {meta['paper']}", "",
+    md_parts = [f"# {meta['paper']}", "", f"*{PROVENANCE}*", "",
                 "## Summary", "", sections["Summary"], "",
                 "## Potential issues", ""]
     if not issues:
@@ -715,6 +719,7 @@ def render(meta, issues, sections, md_filename, build=""):
     refs_block = (f"<h2>References</h2>\n{sections_html['References']}"
                   if sections.get("References") else "")
     return TEMPLATE.replace("{{PAPER}}", esc(meta["paper"])) \
+        .replace("{{PROVENANCE}}", esc(PROVENANCE)) \
         .replace("{{CLAIMS}}", sections_html["Summary"]) \
         .replace("{{ISSUES}}", "\n".join(chips)) \
         .replace("{{NOISSUES}}", "" if issues else
@@ -754,6 +759,7 @@ TEMPLATE = """<!DOCTYPE html>
   h2 { font-size: 1.4em; margin: 1.6em 0 .5em; padding-bottom: .14em;
        border-bottom: 1px solid var(--line); }
   p { margin: .55em 0; }
+  .prov { font-size: .9em; color: var(--mut); margin: -.1em 0 1em; }
 
   .controls { font-size: .9em; color: var(--mut); margin: 0 0 .3em; }
   .controls button { background: none; border: none; padding: 0;
@@ -824,6 +830,7 @@ TEMPLATE = """<!DOCTYPE html>
   </button>
 </div>
 <h1>{{PAPER}}</h1>
+<p class="prov">{{PROVENANCE}}</p>
 
 <h2>Summary</h2>
 {{CLAIMS}}

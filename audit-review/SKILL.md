@@ -10,7 +10,7 @@ description: >-
   goes back to the review's verdict stage. Declares the evidence handoff for the
   digest. Use after a review, or to bring an old run up to the current spec.
 metadata:
-  version: "0.9.2"
+  version: "0.9.3"
 ---
 
 # Audit a review

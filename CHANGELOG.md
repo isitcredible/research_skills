@@ -6,6 +6,18 @@ in `review/spec-changes.csv`, which records every requirement change in full.
 
 Below 1.0 any release may change what the skills require of a run.
 
+## 0.9.3 — 2026-10-28
+
+- The digest prints one fixed line under its title, in the HTML and in its Markdown
+  export: "Produced by AI agents and not independently verified." The renderer adds
+  it; `ISSUES.md` never carries it.
+- The README's *Limits* now say that the output is unverified until a person checks
+  it, and that the gates catch mechanical errors, not every error of inference. The
+  review is described as recording what the evidence supports, not as establishing
+  what is true.
+
+Spec row: R535 (added).
+
 ## 0.9.2 — 2026-10-27
 
 - Model routing is guidance, not fixed assignments: fit it to the models, prices and

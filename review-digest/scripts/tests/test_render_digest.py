@@ -387,3 +387,23 @@ def test_apparatus_declared_not_evidence_is_accepted(tmp_path):
     _, refusals = rd.finalize_checks(str(tmp_path / "ISSUES.md"), str(tmp_path), [],
                                      str(tmp_path / "HANDOFF.manifest.json"))
     assert refusals == []
+
+
+def test_provenance_line_under_title_in_html_and_markdown(tmp_path):
+    from conftest import run
+    p = tmp_path / "ISSUES.md"
+    p.write_text(
+        "---\n"
+        'paper: A 2020, "T" (J)\n'
+        "verdict: Replication: OPEN · 0 not established / 0 narrower / 5 hold\n"
+        "status: COMPLETE\n"
+        "---\n\n## Summary\nEvery claim holds as printed.\n\n## Issues\n\n"
+        "## Assessment\nThe evidence supports the paper's claims.\n",
+        encoding="utf-8")
+    rc, out = run("render_digest.py", p)
+    assert rc == 0, out
+    html = (tmp_path / "DIGEST.html").read_text(encoding="utf-8")
+    title = html.index("<h1>")
+    assert html.index(rd.PROVENANCE) > title
+    assert html.index(rd.PROVENANCE) < html.index("<h2>Summary</h2>")
+    assert json.dumps(f"*{rd.PROVENANCE}*")[1:-1] in html

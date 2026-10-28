@@ -35,7 +35,7 @@ version, recorded in each `SKILL.md`'s frontmatter; `audit-review` reads
 
 ### What the review records
 
-The review establishes what is true and rates nothing. Each load-bearing claim of the
+The review records what the evidence supports and rates nothing. Each load-bearing claim of the
 paper is recorded with:
 
 - **centrality**: `headline`, `supporting` or `peripheral`, read from where the claim
@@ -160,6 +160,12 @@ A long run is resumable: each stage writes its state to `PROGRESS.md` at the job
 
 ### Limits
 
+- Everything the skills produce is written by AI agents and is unverified until a
+  person checks it. The gates catch mechanical errors (a number that does not trace
+  to a log, a quotation that does not match its source, a finding left out), not every
+  error of inference or framing: a review can still draw a conclusion its tests do not
+  support. Check a finding against its evidence before relying on it. Each digest
+  says so under its title.
 - A full review of a published paper is long: many agents, several hours of compute
   and model time. The skills split the work into bounded agents, but they do not make
   it cheap.

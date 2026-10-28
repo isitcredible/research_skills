@@ -7,7 +7,7 @@ description: >-
   context, and records what the evidence establishes claim by claim. Use when asked
   to review a paper, audit a draft, or start a replication.
 metadata:
-  version: "0.9.2"
+  version: "0.9.3"
 ---
 
 # Review
@@ -18,7 +18,7 @@ evidential gap, never the opposite claim; asserting the negation is the same
 overclaim the review exists to catch. A full investigation that finds no fault is a
 valid outcome, reported as survival.
 
-The review establishes what is true; it rates nothing. Each claim is recorded as
+The review records what the evidence supports; it rates nothing. Each claim is recorded as
 holding, holding only in narrower form, or not established, with what survives. How
 much a finding matters to a reader is decided when the digest is written.
 

@@ -6,7 +6,7 @@ description: >-
   human evaluators. Use when asked to "make the reviewer digest", "write the issues
   file", "render the review", or produce an evaluator-facing version of a review.
 metadata:
-  version: "0.9.2"
+  version: "0.9.3"
 ---
 
 # Review digest
@@ -14,7 +14,10 @@ metadata:
 Turns a `review` run's output into the artifacts evaluators read:
 
 - **`ISSUES.md`** — the normalized issue ledger (authored here, gated here).
-- **`DIGEST.html`** — rendered mechanically from the ledger, never hand-written.
+- **`DIGEST.html`** — rendered mechanically from the ledger, never hand-written. The
+  renderer prints one fixed line under the title, "Produced by AI agents and not
+  independently verified.", in the HTML and its Markdown export; the ledger never
+  carries it and no gate reads it.
 - **`ERRATA.md`** — the defect ledger for upstream artifacts (internal).
 
 Two rules shape everything: **extraction, not re-adjudication** — whether each claim
